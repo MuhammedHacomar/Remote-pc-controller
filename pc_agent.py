@@ -4,6 +4,11 @@ import logging
 import threading
 from datetime import datetime, timedelta
 from io import BytesIO
+from dotenv import load_dotenv
+
+# تحميل متغيرات البيئة من ملف .env
+load_dotenv()
+
 import firebase_admin 
 from firebase_admin import credentials, db, storage
 import requests   # internet kontrolu icin 
@@ -12,6 +17,7 @@ from PIL import Image
 import pyautogui
 import screen_brightness_control as sbc
 import cv2
+
 # Windows specific imports
 import win32api
 import win32con
@@ -569,9 +575,9 @@ def handle_command(command):
     
     try:
         if command == "sleep":
-           pause_start_time = time.time()
-           ref_commands.set("None")
-           os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
+            pause_start_time = time.time()
+            ref_commands.set("None")
+            os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
 
         elif command == "logout":
             pause_start_time = time.time()
@@ -579,25 +585,25 @@ def handle_command(command):
             os.system("shutdown /l")
             
         elif command == "shutdown":
-             shutdown_in_progress = True
-             now_ts = int(time.time())
-             ref_status.update({
+            shutdown_in_progress = True
+            now_ts = int(time.time())
+            ref_status.update({
                 "uptime": "00:00:00",
                 "last_seen": now_ts
-           })
-             ref_commands.set("None")
-             os.system("shutdown /s /t 0")
+            })
+            ref_commands.set("None")
+            os.system("shutdown /s /t 0")
             
         elif command == "restart":
-             shutdown_in_progress = True
-             now_ts = int(time.time())
-             ref_status.update({
-                  "uptime": "00:00:00",
-                  "last_seen": now_ts,
-                  "online": False
+            shutdown_in_progress = True
+            now_ts = int(time.time())
+            ref_status.update({
+                "uptime": "00:00:00",
+                "last_seen": now_ts,
+                "online": False
             })
-             ref_commands.set("None")
-             os.system("shutdown /r /t 0")
+            ref_commands.set("None")
+            os.system("shutdown /r /t 0")
             
         elif command == "volume_up":
             volume_up()
@@ -634,14 +640,15 @@ def handle_command(command):
         elif command == "close_camera":
             close_camera()
             ref_commands.set("None")
+            
         elif command.startswith("kill:"):
-           try:
-              pid = int(command.split(":")[1])
-              os.system(f"taskkill /PID {pid} /F")
-              logging.info(f"Killed PID: {pid}")
-           except Exception as e:
-              logging.error(f"Kill command error: {e}")
-           finally:
+            try:
+                pid = int(command.split(":")[1])
+                os.system(f"taskkill /PID {pid} /F")
+                logging.info(f"Killed PID: {pid}")
+            except Exception as e:
+                logging.error(f"Kill command error: {e}")
+            finally:
                 ref_commands.set("None")
         else:
             logging.warning(f"Unknown command: {command}")
@@ -665,8 +672,14 @@ def initialize_firebase():
     # Wait for internet connection
     wait_for_internet()
     
-    # Load service file
-    sa_filename = "bilgisayar-kontrolu-firebase-adminsdk-fbsvc-655a679099.json"
+    # قراءة الإعدادات من متغيرات البيئة
+    sa_filename = os.getenv("FIREBASE_CREDENTIALS_PATH")
+    db_url = os.getenv("FIREBASE_DATABASE_URL")
+    storage_bucket = os.getenv("FIREBASE_STORAGE_BUCKET")
+    
+    if not sa_filename or not db_url or not storage_bucket:
+        raise ValueError("Firebase configuration values missing in .env file.")
+        
     sa_path = os.path.join(BASE_DIR, sa_filename)
     
     if not os.path.exists(sa_path):
@@ -675,8 +688,8 @@ def initialize_firebase():
     # Initialize Firebase
     cred = credentials.Certificate(sa_path)
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://bilgisayar-kontrolu-default-rtdb.firebaseio.com/',
-        'storageBucket': 'bilgisayar-kontrolu.firebasestorage.app'
+        'databaseURL': db_url,
+        'storageBucket': storage_bucket
     })
     
     # Setup references
@@ -690,7 +703,7 @@ def initialize_firebase():
     ref_status.update({
         "computer_name": computer_name,
         "uptime": "00:00:00",
-        "last_seen": now_ts,    # Last time agent was seen
+        "last_seen": now_ts,
     })
     
     logging.info(f"Connected to Firebase - Device: {computer_name}")
