@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Palette -->
+    <color name="primary_50">#E8F4FD</color>
+    <color name="primary_100">#C6E5FA</color>
+    <color name="primary_200">#A1D4F7</color>
+    <color name="primary_300">#7CC3F4</color>
+    <color name="primary_400">#61B6F2</color>
+    <color name="primary_500">#46A9F0</color>
+    <color name="primary_600">#3FA2EE</color>
+    <color name="primary_700">#3798EC</color>
+    <color name="primary_800">#2F8FE9</color>
+    <color name="primary_900">#207EE5</color>
+
+    <!-- Secondary Palette -->
+    <color name="secondary_50">#F0F4FF</color>
+    <color name="secondary_100">#D9E4FF</color>
+    <color name="secondary_200">#B3C9FF</color>
+    <color name="secondary_300">#8DAEFF</color>
+    <color name="secondary_400">#7099FF</color>
+    <color name="secondary_500">#5284FF</color>
+    <color name="secondary_600">#4B7CFF</color>
+    <color name="secondary_700">#4171FF</color>
+    <color name="secondary_800">#3867FF</color>
+    <color name="secondary_900">#2854FF</color>
+
+    <!-- Neutral Colors -->
+    <color name="neutral_50">#F8FAFC</color>
+    <color name="neutral_100">#F1F5F9</color>
+    <color name="neutral_200">#E2E8F0</color>
+    <color name="neutral_300">#CBD5E1</color>
+    <color name="neutral_400">#94A3B8</color>
+    <color name="neutral_500">#64748B</color>
+    <color name="neutral_600">#475569</color>
+    <color name="neutral_700">#334155</color>
+    <color name="neutral_800">#1E293B</color>
+    <color name="neutral_900">#0F172A</color>
+
+    <!-- Semantic Colors -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#EF4444</color>
+    <color name="info">#3B82F6</color>
+
+    <!-- Surface Colors -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F1F5F9</color>
+    <color name="background">#F8FAFC</color>
+
+    <!-- Text Colors -->
+    <color name="on_surface">#0F172A</color>
+    <color name="on_surface_variant">#475569</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#FFFFFF</color>
+
+    <!-- Basic Colors (الألوان المفقودة) -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- App Specific Colors (الألوان المفقودة من الأخطاء) -->
+    <color name="primary_color">#4EC8FA</color> <!-- نفس primary_500 -->
+    <color name="text_primary">#0F172A</color> <!-- نفس on_surface -->
+    <color name="text_secondary">#475569</color> <!-- نفس on_surface_variant -->
+    <color name="card_background">#FFFFFF</color> <!-- نفس surface -->
+
+    <!-- Status Colors -->
+    <color name="connected_green">#10B981</color>
+    <color name="disconnected_red">#EF4444</color>
+
+    <!-- Navigation Colors -->
+    <color name="nav_icon_color">#64748B</color> <!-- neutral_500 -->
+    <color name="nav_text_color">#1E293B</color> <!-- neutral_800 -->
+
+    <!-- Toolbar Colors -->
+    <color name="toolbar_color">#46A9F0</color> <!-- primary_500 -->
+
+    <!-- Accent Colors -->
+    <color name="accent_color">#5284FF</color> <!-- secondary_500 -->
+
+    <!-- Line Colors -->
+    <color name="wine_primary">#46A9F0</color> <!-- primary_500 - تصحيح من wine_primary -->
+
+    <!-- Loading Overlay -->
+    <color name="loading_background">#80000000</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:id="@+id/screen_plus"
+    android:icon="@drawable/screen_plus"
+    android:title="رفع سطوح الشاشة"/>
+    <item
+        android:id="@+id/screen_mins"
+        android:icon="@drawable/screen_mins"
+        android:title="تخفيض سطوح الشاشة"/>
+    <item
+        android:id="@+id/screenShot"
+        android:icon="@drawable/screenshot"
+        android:title="لقطة الشاشة"/>
+    <item
+        android:id="@+id/recShot"
+        android:icon="@drawable/recshot"
+        android:title="فتح الكاميرا"/>
+</menu>

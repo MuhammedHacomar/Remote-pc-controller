@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ic_wallpaper.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M4,4h7V2H4c-1.1,0 -2,0.9 -2,2v7h2V4zM10,17h7v2h-7v2h7c1.1,0 2,-0.9 2,-2v-7h-2v7H10zM20,4v7h2V4c0,-1.1 -0.9,-2 -2,-2h-7v2h7zM15,20h4c1.1,0 2,-0.9 2,-2v-4h-2v4h-4v2z"/>
+</vector>
