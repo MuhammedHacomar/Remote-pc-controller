@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- top_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:type="linear"
+        android:angle="180"
+        android:startColor="#80000000"
+        android:endColor="#00000000"/>
+    <corners android:radius="0dp"/>
+</shape>

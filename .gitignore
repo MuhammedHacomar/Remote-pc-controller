@@ -1,0 +1,16 @@
+# IDE
+.idea/
+.vscode/
+
+# Firebase Admin SDK (حماية المفتاح السري)
+*firebase-adminsdk*.json
+google-services.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+
+# حالات التشغيل أو الملفات المؤقتة
+agent_state.json

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/volume_up"
+        android:icon="@drawable/volume_up"
+        android:title="رفع الصوت" />
+
+    <item
+        android:id="@+id/volume_down"
+        android:icon="@drawable/volume_down"
+        android:title="خفض الصوت" />
+
+    <item
+        android:id="@+id/volume_mute"
+        android:icon="@drawable/volume_mute"
+        android:title="كتم الصوت" />
+
+</menu>
